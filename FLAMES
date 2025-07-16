@@ -1,0 +1,24 @@
+b1=list(b)
+for i in range(len(a1)):
+    for j in range(len(b1)):
+        if(a1[i]==b1[j]):
+            a1[i]='2'
+            b1[j]='2'
+print(a1)
+print(b1)
+for i in a1:
+    if(i=='2'):
+        a1.remove(i)
+for j in b1:
+    if(j=='2'):
+        b1.remove(j)
+num=len(a1)+len(b1)
+print(num)
+
+ans=['F','L','A','M','E','S']
+index=0
+while(len(ans)!=1):
+    index=(index+(num-1))%len(ans)
+    ans.pop(index)
+print("the relation is ",ans[0])
+    
