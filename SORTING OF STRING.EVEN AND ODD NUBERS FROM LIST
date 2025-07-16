@@ -1,0 +1,15 @@
+even=[]
+odd=[]
+string=[]
+a=[10,11,"zakir","Bala",123,44,53,"anuj",20,46,7,"jack"]
+for i in a:
+    if(type(i)==str):
+        string.append(i)
+    elif(i%2==0):
+        even.append(i)
+    elif(i%2==1):
+        odd.append(i)
+    even.sort()
+    odd.sort()
+    string.sort()
+print(odd+even+string)
