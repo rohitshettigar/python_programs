@@ -1,0 +1,12 @@
+a = "aabbbccaa"
+c = 1
+
+for i in range(1, len(a)):
+    if (a[i] == a[i - 1]):
+        c += 1
+    else:
+        print(a[i - 1], c, end=' ')
+        c = 1
+
+# Print last character group
+print(a[-1], c)
