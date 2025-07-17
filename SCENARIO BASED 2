@@ -1,0 +1,33 @@
+emp1=[]
+name=["a","b","c"]
+sal=[100,200,300]
+memo=[1,1,2]
+a11='0'
+res=list(zip(name,sal,memo))
+print(res)
+for i in res:
+        if(i[1]>200):
+          print(i[0])
+          emp1.append(i)
+print(emp1)
+
+remaining=[i for i in res if i[1]<300]
+a1=sorted(remaining,key=lambda x:x[1],reverse=True)
+print(a1)
+index=0
+emp2=[]
+for i in remaining:
+    if(i[2]>=2):
+        emp2.append(i)
+    if(len(emp2)>2):
+        break
+final=emp1+emp2
+for i in final:
+    print("{}.{}:memo{}:salary{}".format(index,i[0],i[2],i[1]))
+    index=index+1
+        
+        
+
+
+ 
+      
