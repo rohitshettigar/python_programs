@@ -1,0 +1,72 @@
+def deposit(accounts, amt, ch):
+    accounts[ch] += amt
+    print("Deposited amount is: ₹{}".format(amt))
+
+
+def withdraw(accounts, amt, ch):
+    accounts[ch] -= amt
+    print("Withdrawn amount is: ₹{}".format(amt))
+
+
+def transfer(accounts, ch, amt, to_acc):
+    if to_acc in accounts:
+        accounts[ch] -= amt
+        accounts[to_acc] += amt
+        print("Transferred ₹{} to account {}".format(amt, to_acc))
+    else:
+        print("Transfer failed: destination account does not exist.")
+
+
+def menu(accounts, ch):
+    while True:
+        print("\n------ Welcome to the Account ------")
+        print("1. CHECK BALANCE")
+        print("2. DEPOSIT")
+        print("3. WITHDRAW")
+        print("4. TRANSFER")
+        print("5. LOGOUT")
+
+        d = int(input("Enter your choice: "))
+
+        if d == 1:
+            bal = accounts[ch]
+            print("The bank balance is: ₹{}".format(bal))
+
+        elif d == 2:
+            amt = int(input("Enter the amount to be deposited: "))
+            deposit(accounts, amt, ch)
+
+        elif d == 3:
+            amt = int(input("Enter the amount to be withdrawn: "))
+            if amt > accounts[ch]:
+                print("Insufficient balance")
+            else:
+                withdraw(accounts, amt, ch)
+
+        elif d == 4:
+            to_acc = int(input("Enter the account number to transfer to: "))
+            amt = int(input("Enter the amount to be transferred: "))
+            if amt > accounts[ch]:
+                print("Insufficient balance")
+            else:
+                transfer(accounts, ch, amt, to_acc)
+
+        elif d == 5:
+            print("------- Logging out --------")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+
+# Main Program
+accounts = {101: 100, 102: 1000, 103: 5000}
+
+while True:
+    ch = int(input("\nEnter your account number (0 to exit): "))
+    if ch == 0:
+        print("Exiting the system. Thank you!")
+        break
+    elif ch in accounts:
+        menu(accounts, ch)
+    else:
+        print("Account does not exist.")
