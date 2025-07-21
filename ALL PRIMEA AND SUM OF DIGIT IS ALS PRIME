@@ -1,0 +1,25 @@
+def prime(i):
+    if i <= 1:
+        return False
+    for j in range(2, int(i**0.5) + 1):
+        if i % j == 0:
+            return False
+    return True
+
+def sod(i):  # Sum of digits is prime
+    d = list(str(i))
+    x = sum([int(c) for c in d])
+    return prime(x)
+
+def dig(i):  # All digits are prime
+    while i > 0:
+        d = i % 10
+        if not prime(d):
+            return False
+        i = i // 10
+    return True
+
+# Main loop: 3-digit numbers satisfying all conditions
+for i in range(100, 1000):
+    if prime(i) and sod(i) and dig(i):
+        print(i, end=" ")
