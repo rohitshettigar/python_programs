@@ -1,0 +1,19 @@
+# 1. move n-1 disks from a to b( c is auxilary)
+# 2. move nth disk from a to c( b is auxilary)
+# 3. move n-1 disks from b to c( a is auxilary)
+def tower(disk,source,auxi,dest):
+    if(disk==1):
+        print("move disk 1 from source to dest")
+        return
+    else:
+        tower(disk-1,source,dest,auxi)
+        print("move{} from {} to {}".format(disk,source,dest))
+        tower(disk-1,auxi,source,dest)
+
+
+
+
+
+disk=int(input("enter any number:"))
+print("steps involved are")
+tower(disk,'A','B','C')
