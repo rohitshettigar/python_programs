@@ -1,0 +1,24 @@
+class Rectangle:
+    def init(self, length, breadth):
+        self.len = length
+        self.bred = breadth
+
+    def area(self):
+        self.a = self.len * self.bred
+        
+
+    def peri(self):
+        self.p = 2 * (self.len + self.bred)
+        
+
+    def display(self):
+        print("Length of rectangle is:", self.len)
+        print("Breadth of rectangle is:", self.bred)
+        print("Area is:", self.a)
+        print("Perimeter is:", self.p)
+
+# Usage
+a1 = Rectangle(2, 3)
+a1.area()
+a1.peri()
+a1.display()
