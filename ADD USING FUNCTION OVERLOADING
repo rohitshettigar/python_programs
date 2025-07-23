@@ -1,0 +1,8 @@
+class add:
+    def addition(self,*args):
+        sum=0
+        for i in args:
+            sum=sum+i
+        print(sum)
+a=add()
+a.addition(20,30,30,20)
