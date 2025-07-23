@@ -1,0 +1,13 @@
+def nitte(n):
+    c=0
+    if(n<=1):
+        return len("Return")
+    for i in range(n):
+        nitte(i)
+        print("Hai")
+        c=c+2
+    print(c)
+
+
+b=nitte(3)
+print(b)
