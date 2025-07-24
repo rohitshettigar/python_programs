@@ -1,0 +1,95 @@
+from random import randint
+score1=0
+score2=0
+while True:
+    player1=int(input("enter the player(1 or 2):"))
+    dice_no=randint(1,6)
+    if player1==1:
+        print("Dice no:",dice_no)
+        score1=score1+dice_no
+        if score1==22:
+            print("you caught a snake")
+            score1=6
+            print(score1)
+        elif score1==45:
+            print("you caught a snake")
+            score1=30
+            print(score1)
+        elif score1==96:
+            score1=60
+            print(score1)
+        elif score1==7:
+            print("you caught a ladder")
+            score1=24
+            print(score1)
+        elif score1==21:
+            print("you caught a ladder")
+            score1=77
+            print(score1)
+        elif score1==42:
+            print("you caught a ladder")
+            score1=90
+            print(score1)
+        elif score1==40:
+            print("you caught a ladder")
+            score1=60
+            print(score1)
+            
+        
+        print("player1 score:",score1)
+        print("player2 score:",score2)
+        print("------------------------------")
+        
+    elif player1==2:
+        print("Dice no:",dice_no)
+        score2=score2+dice_no
+        if score2==22:
+            print("you caught a snake")
+            score2=6
+            print(score2)
+        elif score2==45:
+            print("you caught a snake")
+            score2=30
+            print(score2)
+        elif score2==96:
+            score2=60
+            print(score2)
+        elif score2==7:
+            print("you caught a ladder")
+            score2=24
+            print(score2)
+        elif score2==21:
+            print("you caught a ladder")
+            score2=77
+            print(score2)
+        elif score2==42:
+            print("you caught a ladder")
+            score2=90
+            print(score2)
+        elif score2==40:
+            print("you caught a ladder")
+            score2=60
+            print(score2)
+        if score1==100:
+            print(" player1 is winneer")
+            break
+        elif score2==100:
+            print("plater2 wins")
+            break
+      
+            
+        print("player1 score:",score1)
+        print("player2 score:",score2)
+        print("------------------------------")
+    else:
+        print("only two players")
+        print("------------------------------")
+    
+    
+      
+
+
+
+
+    
+   
