@@ -1,0 +1,25 @@
+from collections import deque
+
+
+def find(task, time_slice):
+    q = deque()
+    for i in range(len(task)):
+        q.append((i + 1, task[i]))  
+
+    runs = 0
+
+    while q:
+        tid, rem = q.popleft()
+        run = min(rem, time_slice)
+        print(f"Task {tid} runs for {run} units")
+        runs += 1
+        if rem > time_slice:
+            q.append((tid, rem - time_slice))
+
+    print(f"Total runs taken: {runs}")
+
+
+    
+task=[10,5,8]
+time_slice=4
+find(task,time_slice)
