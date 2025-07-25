@@ -1,0 +1,11 @@
+import qrcode
+
+msg = "hi im rohit"
+qr = qrcode.QRCode()
+qr.add_data(msg)
+qr.make(fit=True)
+
+img = qr.make_image(fill_color="black", back_color="white")
+img.save("rohit.png")
+
+print("Success!")
