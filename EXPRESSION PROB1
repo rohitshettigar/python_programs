@@ -1,0 +1,46 @@
+def find(exp):
+    operands = []
+    operators = []
+    priority = {'+': 1, '-': 1, '*': 2, '/': 2}
+    i = 0
+
+    while i < len(exp):
+        if exp[i].isdigit():
+            num = ""
+            while i < len(exp) and exp[i].isdigit():
+                num += exp[i]
+                i += 1
+            operands.append(int(num))
+        else:
+            while (operators and priority.get(operators[-1], 0) >= priority.get(exp[i], 0)):
+                op = operators.pop()
+                b = operands.pop()
+                a = operands.pop()
+                if op == '+':
+                    operands.append(a + b)
+                elif op == '-':
+                    operands.append(a - b)
+                elif op == '*':
+                    operands.append(a * b)
+                elif op == '/':
+                    operands.append(a / b)
+            operators.append(exp[i])
+            i += 1
+
+    while operators:
+        op = operators.pop()
+        b = operands.pop()
+        a = operands.pop()
+        if op == '+':
+            operands.append(a + b)
+        elif op == '-':
+            operands.append(a - b)
+        elif op == '*':
+            operands.append(a * b)
+        elif op == '/':
+            operands.append(a / b)
+
+    return operands[0]
+exp="10+2*3/4+3"
+res=find(exp)
+print(res)
